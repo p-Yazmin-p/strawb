@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Las Fresas</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        /* Estilos generales de la página */
+        body {
+        
+            font-family: sans-serif; /* Establece la fuente principal */
+            font-size: 16px; /* Establece el tamaño de la fuente base */
+            line-height: 1.5; /* Establece el espaciado entre líneas */
+            color: #000000; /* Establece el color de texto general */
+            background-color: #aa5959; /* Establece el color de fondo */
+            margin: 20px; /* Márgenes alrededor del cuerpo */
+        }
+
+        /* Estilos para el encabezado */
+        h1 {
+            font-family: "Georgia", serif; /* Otra fuente para el encabezado */
+            font-size: 2.5em; /* Tamaño de fuente más grande */
+            font-weight: bold; /* Texto en negrita */
+            text-align: center; /* Centra el texto */
+            color: #26e46f; /* Color del encabezado */
+            text-transform: uppercase; /* Convierte el texto a mayúsculas */
+            letter-spacing: 2px; /* Espacio entre letras */
+        }
+
+        /* Estilos para el primer párrafo con letra capital */
+        p:first-letter {
+            font-size: 3em; /* Tamaño de la letra capital */
+            font-weight: bold; /* Letra capital en negrita */
+            color: #171c40; /* Color de la letra capital */
+            float: left; /* Flota la letra capital a la izquierda */
+            margin-right: 5px; /* Espacio a la derecha de la letra capital */
+            line-height: 1; /* Ajusta la altura de línea de la letra capital */
+        }
+
+        /* Estilos para enlaces */
+        a {
+            color: #000000;
+            text-decoration: none; /* Elimina el subrayado por defecto */
+            color: #3498db; /* Color del enlace no visitado */
+            font-weight: bold; /* Enlace en negrita */
+            background-image: url('icono-enlace.png'); /* Icono de fondo */
+            background-repeat: no-repeat; /* Evita la repetición del icono */
+            background-position: left center; /* Posiciona el icono a la izquierda y centrado verticalmente */
+            padding-left: 20px; /* Espacio para el icono */
+        }
+
+        /* Estilos para enlaces visitados */
+        a:visited {
+            color: #c7abd3; /* Color del enlace visitado */
+        }
+
+        /* Estilos para el puntero sobre el enlace */
+        a:hover {
+            text-decoration: underline; /* Subraya al pasar el ratón */
+            color: #1e877f; /* Otro color al pasar el ratón */
+        }
+
+        /* Estilos para el enlace activo (cuando se hace clic) */
+        a:active {
+            color: #f39c12; /* Color cuando se hace clic */
+        }
+
+        /* Estilos para convertir enlaces en botones */
+        .boton-enlace {
+            display: inline-block; /* Permite establecer ancho y alto */
+            background-color: #765e86; /* Color de fondo del botón */
+            color: white; /* Color del texto del botón */
+            padding: 10px 20px; /* Espaciado interno */
+            border-radius: 5px; /* Bordes redondeados */
+            text-align: center; /* Centra el texto del botón */
+            margin-right: 10px; /* Espacio entre botones */
+        }
+
+        .boton-enlace:hover {
+            background-color: #654479; /* Color al pasar el ratón en el botón */
+            text-decoration: none; /* Elimina el subrayado al pasar el ratón */
+        }
+
+        /* Estilos para listas */
+        ul {
+            list-style-type: square; /* Tipo de viñeta cuadrada */
+        }
+
+        ol {
+            list-style-image: ('jett.jpg'); /* Imagen como viñeta */
+        }
+
+        li {
+            margin-bottom: 5px; /* Espacio entre elementos de la lista */
+        }
+
+        /* Viñeta automática si la imagen no se carga */
+        ol {
+            list-style: decimal inside url('icono-lista-error.png'); /* Decimal como fallback y posición inside */
+        }
+
+        /* Estilos para tablas */
+        table {
+            width: 80%; /* Ancho de la tabla */
+            margin: 20px auto; /* Centra la tabla */
+            border-collapse: collapse; /* Colapsa los bordes de las celdas */
+        }
+
+        th, td {
+            border: 1px solid #aa0505; /* Borde de las celdas */
+            padding: 8px; /* Espaciado interno de las celdas */
+            text-align: left; /* Alineación del texto */
+        }
+
+        th {
+            background-color: #ffffff; /* Color de fondo de la cabecera */
+        }
+
+        /* Espaciado entre bordes de celdas */
+        table.espaciada {
+            border-spacing: 10px;
+            border-collapse: separate; /* Evita el colapso para ver el espaciado */
+        }
+
+        /* Ocultar celdas vacías */
+        td.vacia {
+            empty-cells: hide;
+        }
+
+        /* Posición de la leyenda de la tabla */
+        caption {
+            caption-side: bottom; /* Leyenda debajo de la tabla */
+            font-style: italic;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        /* Estilo para filas con color */
+        tr:nth-child(even) {
+            background-color: #f9e7e7; /* Color para filas pares */
+        }
+
+        /* Estilos para formularios */
+        form {
+            width: 70%;
+            margin: 20px auto;
+            padding: 15px;
+            border: 1px solid #585858;
+            border-radius: 5px;
+            background-color: #705c48;
+        }
+
+        .campo-formulario {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: calc(100% - 12px);
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        /* Estilo para el botón como enlace */
+        button[type="submit"] {
+            background: none;
+            border: none;
+            color: #103a56;
+            text-decoration: underline;
+            padding: 0;
+            font-size: inherit;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            color: #2ecc71;
+        }
+
+        /* Resaltar el campo con foco */
+        input:focus,
+        textarea:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+            outline: none; /* Elimina el contorno predeterminado del navegador */
+        }
+    </style>
+</head>
+<body>
+    
+
+    <script>
+        //ASGNACION 
+        let descuentoClienteFrecuente = 0.15; // 15% de descuento
+        let esClienteVIP = true; // ¿Es un cliente VIP?
+
+    // --- Estructura if ---
+    // Decisión simple: ¿Hay suficiente stock para cualquier pedido?
+    if (stockFresasKilos > 0) {
+        console.log("¡Tenemos fresas en stock! Realiza tu pedido.");
+    }
+
+    // --- Estructura if-else ---
+    // Decisión: ¿Podemos satisfacer el pedido del cliente?
+    if (pedidoClienteKilos <= stockFresasKilos) {
+        console.log(`¡Excelente! Tenemos suficientes fresas (${stockFresasKilos}kg). Tu pedido de ${pedidoClienteKilos}kg está siendo procesado.`);
+        stockFresasKilos = stockFresasKilos - pedidoClienteKilos; // Actualizamos el stock
+        console.log(`Nuevo stock disponible: ${stockFresasKilos}kg.`);
+    } else {
+        console.log(`Lo sentimos, solo nos quedan ${stockFresasKilos}kg de fresas. No podemos completar tu pedido de ${pedidoClienteKilos}kg.`);
+    }
+
+    console.log("\n--- Revisión de Fechas de Cosecha ---");
+
+    let fechasCosecha = ["2025-05-10", "2025-05-17", "2025-05-24", "2025-05-31"];
+
+    // --- Estructura for ---
+    // Iterar sobre las fechas de cosecha para mostrarlas
+    for (let i = 0; i < fechasCosecha.length; i++) {
+        console.log(`Próxima fecha de cosecha disponible: ${fechasCosecha[i]}`);
+    }
+
+    console.log("\n--- Resumen de Productos de Fresa ---");
+
+    let productosFresa = {
+        nombre1: "Fresa Fresca",
+        precio1: 3.50,
+        organico1: true,
+        nombre2: "Mermelada de Fresa",
+        precio2: 5.99,
+        organico2: false
+    };
+
+    // --- Estructura for...in ---
+    // Iterar sobre las propiedades de un objeto para mostrar información del producto
+    for (let key in productosFresa) {
+        console.log(`Propiedad del producto: ${key}: ${productosFresa[key]}`);
+    }
+
+    // --- Combinación de Estructuras ---
+    console.log("\n--- Verificación de Ofertas y Clientes VIP ---");
+
+    let precioNormal = 4.00;
+    let precioOferta = 3.00;
+    let stockMinimoOferta = 5;
+
+    // Combinamos if-else y for para aplicar descuentos y verificar stock
+    if (stockFresasKilos >= stockMinimoOferta) {
+        console.log(`¡Tenemos suficientes fresas (${stockFresasKilos}kg) para una oferta!`);
+        if (esClienteVIP) {
+            console.log(`Como cliente VIP, el precio por kilo es de $${precioOferta.toFixed(2)}. ¡Aprovecha!`);
+        } else {
+            console.log(`Precio por kilo para público general: $${precioNormal.toFixed(2)}.`);
+        }
+    } else {
+        console.log(`Stock bajo (${stockFresasKilos}kg). No podemos ofrecer descuentos en este momento.`);
+    }
+
+    console.log("-----------------------------------------");
+
+    let nuevoTextArea = document.createElement("textarea");
+    console.log(¿hay una oferta discponible?)
+    leasync (params) => {
+        t
+    } hayOfertaespecial= document.getElementById("comentarios").value;
+    
+
+        </script>   
+
+        <noscript>
+            function mostrarAlertaDeError(mensaje) {
+                alert("Error: " + mensaje);
+              }        </noscript>
+    <script src="valopaaaag/javafresas.js"></script>
+    <h1>¡La Dulzura de las Fresas!</h1>
+
+    <p>Las fresas son una deliciosa fruta de color rojo brillante, conocida por su sabor dulce y ligeramente ácido. Son una excelente fuente de vitamina C y antioxidantes, lo que las convierte en un alimento muy saludable. Además de comerse frescas, las fresas se utilizan en una gran variedad de postres, mermeladas y bebidas.</p>
+
+    <center>
+        <h2>Tipos de Fresas</h2>
+            <table style="border-collapse: collapse; width: 80%; margin: 20px auto;">
+                    <td>
+                        <strong>Fresas de bosque:</strong><br>
+                        <ul>
+                            <li>Fragaria vesca (alpina): Pequeñas, muy dulces y con sabor intenso.</li>
+                            <li>Fragaria viridis: Más ácidas y menos dulces, conocidas como fresas verdes.</li>
+                            <li>Fragaria Nubicola: Dulces, comunes en zonas tropicales y templadas de Asia.</li>
+                        </ul>
+                    </td>
+                    <td style="padding: 10px; vertical-align: top;">
+                        <strong>Fresas cultivadas:</strong><br>
+                        <ul>
+                            <li>Albion: Muy populares, con buen sabor, resistencia a condiciones climáticas y fácil recolección.</li>
+                            <li>Elsanta: Jugosas, de larga duración después de la cosecha, con equilibrio entre dulzor y acidez.</li>
+                            <li>Camarosa: De fácil adaptación a diferentes climas, muy popular en zonas cálidas.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; vertical-align: top;">
+                        <strong>Fresones:</strong><br>
+                        <ul>
+                            <li>Reina de los Valles: Un tipo de fresa pequeña de bosque.</li>
+                            <li>Charlotte: Produce frutos grandes, de color rojo granate, muy dulces y con sabor a fresa silvestre.</li>
+                            <li>Garriguette: Una de las primeras fresas de la primavera, de sabor largo y picante.</li>
+                        </ul>
+                    </td>
+                    <td style="padding: 10px; vertical-align: top;">
+                        <strong>Otras variedades:</strong><br>
+                        <ul>
+                            <li>Rociera: Una variedad cultivada en Huelva, España, de buena producción.</li>
+                            <li>Dely: Variedad precoz, con frutos de buena medida y sabor a fresa de bosque.</li>
+                            <li>Joly: Maduración mediano-tardía, muy productiva y con frutos de excelente sabor y aroma.</li>
+                            <li>Elsinore: Frutos grandes, de color rojo anaranjado, con pulpa roja y sabor soso, ideal para climas continentales.</li>
+                            <li>Monte Everest: Variedad trepadora, de frutos de tamaño medio y color rojo oscuro.</li>
+                            <li>Ciflorette: Frutos anaranjados, alargados y jugosos, con excelente sabor.</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table></center>
+    <center> <img src="fres.jpg" width="700" height="400" alt=" "></center>
+   <center><h2>Usos Culinarios de las Fresas</h2>
+    <ol>
+        <li>Fresas con crema</li>
+        <li>Pastel de fresa</li>
+        <li>Mermelada de fresa</li>
+        <li>Batidos de fresa</li>
+        <li>Ensaladas con fresas</li>
+    </ol></center>
+
+    <h2>Información Nutricional (por 100g)</h2>
+    <table class="espaciada">
+        <caption>Fuente: USDA FoodData Central</caption>
+        <thead>
+            <tr>
+                <th>Nutriente</th>
+                <th>Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Calorías</td>
+                <td>32 kcal</td>
+            </tr>
+            <tr>
+                <td>Agua</td>
+                <td>91.41 g</td>
+            </tr>
+            <tr>
+                <td>Vitamina C</td>
+                <td>58.8 mg</td>
+            </tr>
+            <tr>
+                <td>Fibra</td>
+                <td>2 g</td>
+            </tr>
+            <tr>
+                <td>Azúcares</td>
+                <td>4.89 g</td>
+            </tr>
+            <tr>
+                <td class="vacia"></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Enlaces de Interés</h2>
+    <p>
+        <a href="https://extension.usu.edu/createbetterhealth/espanol-blog/Fresas" target="_blank">Más información a detalle de las fresas</a><br>
+        <a href="https://www.youtube.com/watch?v=U5DIlCwzTiE" target="_blank">Ricas recetas con fresas</a><br>
+        <a href="https://super.walmart.com.mx/ip/fresas-454-g/00000000004028?srsltid=AfmBOorCNeZ3BusGPfKXsjnvWtiVZjmDs6imbcEGEzjtMlAljwJqyxZO" class="boton-enlace">¡Compra fresas ahora!</a>
+        
+    </p>
+
+    <h2>¡Contáctanos para más información!</h2>
+    <form>
+        <div class="campo-formulario">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="campo-formulario">
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="campo-formulario">
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+        </div>
+        <button type="submit">Enviar Formulario</button>
+    </form>
+
+</body>
+</html>

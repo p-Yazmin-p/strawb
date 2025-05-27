@@ -195,15 +195,19 @@
     </style>
 </head>
 <body>
-    
+
 
     <script>
         //ASGNACION 
         let descuentoClienteFrecuente = 0.15; // 15% de descuento
         let esClienteVIP = true; // ¿Es un cliente VIP?
+        alert("¡Bienvenido!");
 
     // --- Estructura if ---
-    // Decisión simple: ¿Hay suficiente stock para cualquier pedido?
+    <label for="Comentarios"> ¿Hay suficiente stock para cualquier pedido? </label>
+    <textarea id="Comentarios" placeholder=" ?"></textarea>
+
+    let stockFresasKilo
     if (stockFresasKilos > 0) {
         console.log("¡Tenemos fresas en stock! Realiza tu pedido.");
     }
